@@ -824,28 +824,48 @@ function firstInteraction() {
 }
 
 
-/* =====================================================
-   USER INTERACTION
-===================================================== */
+/* ================================================= */
+/* START MUSIC AFTER USER INTERACTION                */
+/* ================================================= */
 
-document.addEventListener(
-    "click",
-    firstInteraction,
-    { once: true }
-);
+function firstInteraction() {
 
-document.addEventListener(
-    "touchstart",
-    firstInteraction,
-    { once: true }
-);
+    if (backgroundMusic.paused) {
 
-document.addEventListener(
-    "keydown",
-    firstInteraction,
-    { once: true }
-);
+        backgroundMusic.play()
+            .then(function () {
 
+                musicHasStarted = true;
+
+                updateMusicButton();
+
+                saveMusicPosition();
+
+            })
+            .catch(function (error) {
+
+                console.log("Music could not start:", error);
+
+            });
+
+    }
+
+}
+
+
+/* User clicks anywhere */
+
+document.addEventListener("click", firstInteraction);
+
+
+/* User touches the screen */
+
+document.addEventListener("touchstart", firstInteraction);
+
+
+/* User presses a key */
+
+document.addEventListener("keydown", firstInteraction);
 
 /* =====================================================
    PAGE LOAD
