@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little Cinema ❤️</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+
+    background: #020817;
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+#videos-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 70px 20px 100px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255, 77, 150, 0.13),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(145, 80, 255, 0.12),
+            transparent 30%
+        ),
+
+        #020817;
+
+}
+
+
+/* =====================================================
+   BACKGROUND GLOW
+===================================================== */
+
+#videos-page::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 430px;
+    height: 430px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255, 75, 155, 0.13),
+            transparent 70%
+        );
+
+    top: -220px;
+    left: -170px;
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    animation: glowOne 10s ease-in-out infinite alternate;
+
+}
+
+
+#videos-page::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(145, 80, 255, 0.11),
+            transparent 70%
+        );
+
+    right: -170px;
+    bottom: -180px;
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    animation: glowTwo 12s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes glowOne {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(90px, 70px);
+    }
+
+}
+
+
+@keyframes glowTwo {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-80px, -70px);
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING HEARTS
+===================================================== */
+
+.floating-heart {
+
+    position: fixed;
+
+    bottom: -40px;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    color: rgba(255, 105, 180, 0.4);
+
+    font-size: 18px;
+
+    animation: floatHeart linear infinite;
+
+}
+
+
+.heart1 {
+    left: 8%;
+    animation-duration: 11s;
+}
+
+.heart2 {
+    left: 27%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.heart3 {
+    left: 48%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+.heart4 {
+    left: 72%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.heart5 {
+    left: 91%;
+    animation-duration: 12s;
+    animation-delay: 3s;
+}
+
+
+@keyframes floatHeart {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(0.6)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    85% {
+        opacity: 0.3;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            scale(1.2)
+            rotate(25deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.video-container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1150px, 100%);
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.video-header {
+
+    text-align: center;
+
+    margin-bottom: 65px;
+
+}
+
+
+.video-header h1 {
+
+    margin: 0;
+
+    color: #ff72b5;
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(55px, 8vw, 85px);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    text-shadow:
+        0 0 20px rgba(255, 105, 180, 0.25);
+
+}
+
+
+.header-line {
+
+    width: 120px;
+
+    height: 2px;
+
+    margin: 22px auto;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff63aa,
+            transparent
+        );
+
+}
+
+
+.video-subtitle {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.video-section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 55px 0 25px;
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+}
+
+
+.video-section-title::before {
+
+    content: "";
+
+    width: 5px;
+
+    height: 32px;
+
+    border-radius: 10px;
+
+    background:
+
+        linear-gradient(
+            #ff4f9a,
+            #ff87bd
+        );
+
+    box-shadow:
+        0 0 15px rgba(255, 79, 154, 0.35);
+
+}
+
+
+.video-section-title::after {
+
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(255, 105, 180, 0.35),
+            transparent
+        );
+
+}
+
+
+/* =====================================================
+   VIDEO GRID
+===================================================== */
+
+.video-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+
+}
+
+
+/* =====================================================
+   VIDEO CARD
+===================================================== */
+
+.video-card {
+
+    position: relative;
+
+    padding: 14px;
+
+    border-radius: 24px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(30, 42, 58, 0.96),
+            rgba(13, 24, 39, 0.96)
+        );
+
+    border:
+        1px solid
+        rgba(255, 92, 157, 0.20);
+
+    box-shadow:
+
+        0 15px 40px
+        rgba(0, 0, 0, 0.30);
+
+    transition:
+
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+}
+
+
+.video-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(255, 92, 157, 0.60);
+
+    box-shadow:
+
+        0 25px 50px
+        rgba(0, 0, 0, 0.40),
+
+        0 0 25px
+        rgba(255, 92, 157, 0.12);
+
+}
+
+
+/* =====================================================
+   VIDEO
+===================================================== */
+
+.video-wrapper {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #000;
+
+}
+
+
+.video-card video {
+
+    width: 100%;
+
+    height: 290px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    background: #000;
+
+}
+
+
+/* =====================================================
+   VIDEO LABEL
+===================================================== */
+
+.video-label {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 16px 6px 4px;
+
+}
+
+
+.video-label p {
+
+    margin: 0;
+
+    color: #f4f5f7;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+}
+
+
+.video-number {
+
+    min-width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 105, 180, 0.10);
+
+    border:
+        1px solid
+        rgba(255, 105, 180, 0.25);
+
+    color: #ff8ac3;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.page-navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin: 65px auto 20px;
+
+}
+
+
+.page-navigation button {
+
+    border: none;
+
+    outline: none;
+
+    padding: 14px 28px;
+
+    min-width: 190px;
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff4f9a,
+            #ff72b6
+        );
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 10px 28px
+        rgba(255, 79, 154, 0.30);
+
+    transition:
+
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.page-navigation button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+
+        0 15px 38px
+        rgba(255, 79, 154, 0.45);
+
+}
+
+
+.page-navigation button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #videos-page {
+
+        padding:
+            50px 15px 80px;
+
+    }
+
+
+    .video-header {
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .video-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+    }
+
+
+    .video-card video {
+
+        height: 250px;
+
+    }
+
+
+    .video-section-title {
+
+        font-size: 19px;
+
+        margin-top: 45px;
+
+    }
+
+
+    .page-navigation {
+
+        flex-direction: column;
+
+        margin-top: 50px;
+
+    }
+
+
+    .page-navigation button {
+
+        width: 90%;
+
+        max-width: 300px;
+
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .video-card video {
+
+        height: 220px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     FLOATING HEARTS
+===================================================== -->
+
+<div class="floating-heart heart1">❤️</div>
+<div class="floating-heart heart2">💗</div>
+<div class="floating-heart heart3">💕</div>
+<div class="floating-heart heart4">💖</div>
+<div class="floating-heart heart5">❤️</div>
+
+
+<section id="videos-page">
+
+<div class="video-container">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div
+    class="video-header"
+    data-aos="fade-down">
+
+    <h1>
+        🎥 Our Little Cinema
+    </h1>
+
+    <div class="header-line"></div>
+
+    <p class="video-subtitle">
+
+        Some memories are better watched than explained. ❤️
+
+        <br>
+
+        Press play and relive our little moments together. ✨
+
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     DAYOUT
+===================================================== -->
+
+<h2
+    class="video-section-title"
+    data-aos="fade-up">
+
+    🍳 Dayout Memories
+
+</h2>
+
+
+<div class="video-grid">
+
+
+<div
+    class="video-card"
+    data-aos="zoom-in">
+
+    <div class="video-wrapper">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="assets/videos/Dayout/V1.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+    </div>
+
+    <div class="video-label">
+
+        <p>
+            ❤️ Cooking Together
+        </p>
+
+        <span class="video-number">
+            01
+        </span>
+
+    </div>
+
+</div>
+
+
+<div
+    class="video-card"
+    data-aos="zoom-in">
+
+    <div class="video-wrapper">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="assets/videos/Dayout/V2.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+    </div>
+
+    <div class="video-label">
+
+        <p>
+            😂 Teasing You
+        </p>
+
+        <span class="video-number">
+            02
+        </span>
+
+    </div>
+
+</div>
+
+
+<div
+    class="video-card"
+    data-aos="zoom-in">
+
+    <div class="video-wrapper">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="assets/videos/Dayout/V3.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+    </div>
+
+    <div class="video-label">
+
+        <p>
+            🌸 Beautiful Memory
+        </p>
+
+        <span class="video-number">
+            03
+        </span>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     TRIP
+===================================================== -->
+
+<h2
+    class="video-section-title"
+    data-aos="fade-up">
+
+    ✈️ Trip Memories
+
+</h2>
+
+
+<div class="video-grid">
+
+
+<div
+    class="video-card"
+    data-aos="zoom-in">
+
+    <div class="video-wrapper">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="assets/videos/Trip/V4.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+    </div>
+
+    <div class="video-label">
+
+        <p>
+            🎉 Cute Moments
+        </p>
+
+        <span class="video-number">
+            04
+        </span>
+
+    </div>
+
+</div>
+
+
+<div
+    class="video-card"
+    data-aos="zoom-in">
+
+    <div class="video-wrapper">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="assets/videos/Trip/V5.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+    </div>
+
+    <div class="video-label">
+
+        <p>
+            🎶 Singing Together
+        </p>
+
+        <span class="video-number">
+            05
+        </span>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     MY FAVOURITES
+===================================================== -->
+
+<h2
+    class="video-section-title"
+    data-aos="fade-up">
+
+    💖 My Favourite Moments
+
+</h2>
+
+
+<div class="video-grid">
+
+
+<div
+    class="video-card"
+    data-aos="zoom-in">
+
+    <div class="video-wrapper">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="assets/videos/My%20fav/V6.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+    </div>
+
+    <div class="video-label">
+
+        <p>
+            ❤️ Beautiful Memories
+        </p>
+
+        <span class="video-number">
+            06
+        </span>
+
+    </div>
+
+</div>
+
+
+<div
+    class="video-card"
+    data-aos="zoom-in">
+
+    <div class="video-wrapper">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="assets/videos/My%20fav/V7.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+    </div>
+
+    <div class="video-label">
+
+        <p>
+            ✨ My Favourite One
+        </p>
+
+        <span class="video-number">
+            07
+        </span>
+
+    </div>
+
+</div>
+
+
+<div
+    class="video-card"
+    data-aos="zoom-in">
+
+    <div class="video-wrapper">
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="assets/videos/My%20fav/V8.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+    </div>
+
+    <div class="video-label">
+
+        <p>
+            💖 Dancing Together
+        </p>
+
+        <span class="video-number">
+            08
+        </span>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<div class="page-navigation">
+
+
+<button onclick="goToPage('gallery.html')">
+
+    ⬅ Previous
+
+</button>
+
+
+<button onclick="goToPage('music.html')">
+
+    🎵 Our Playlist ➜
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+<script>
+
+/* =====================================================
+   AOS
+===================================================== */
+
+AOS.init({
+
+    duration: 900,
+
+    once: true,
+
+    offset: 80
+
+});
+
+
+/* =====================================================
+   VIDEO MUSIC CONTROL
+===================================================== */
+
+const videos =
+    document.querySelectorAll("video");
+
+
+videos.forEach(function(video) {
+
+
+    video.addEventListener(
+        "play",
+        function() {
+
+            if (
+                window.parent &&
+                window.parent !== window
+            ) {
+
+                window.parent.postMessage({
+
+                    type: "videoStarted"
+
+                }, "*");
+
+            }
+
+        }
+    );
+
+
+    video.addEventListener(
+        "ended",
+        function() {
+
+            if (
+                window.parent &&
+                window.parent !== window
+            ) {
+
+                window.parent.postMessage({
+
+                    type: "videoFinished"
+
+                }, "*");
+
+            }
+
+        }
+    );
+
+
+    video.addEventListener(
+        "pause",
+        function() {
+
+            if (
+                !video.ended &&
+                window.parent &&
+                window.parent !== window
+            ) {
+
+                window.parent.postMessage({
+
+                    type: "videoFinished"
+
+                }, "*");
+
+            }
+
+        }
+    );
+
+
+});
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function goToPage(page) {
+
+
+    if (
+
+        window.parent &&
+
+        window.parent !== window &&
+
+        typeof window.parent.loadPage === "function"
+
+    ) {
+
+        window.parent.loadPage(page);
+
+    }
+
+    else {
+
+        window.location.href = page;
+
+    }
+
+
+}
+
+</script>
+
+
+</body>
+
+</html>

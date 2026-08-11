@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Journey ❤️</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 77, 151, 0.10), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(255, 105, 180, 0.08), transparent 30%),
+        #07111f;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+#timeline-page {
+    min-height: 100vh;
+    padding: 70px 20px 60px;
+    position: relative;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.floating-heart {
+    position: fixed;
+    color: rgba(255, 92, 157, 0.35);
+    font-size: 20px;
+    animation: floatHeart 7s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart1 {
+    left: 8%;
+    bottom: -30px;
+    animation-delay: 1s;
+}
+
+.heart2 {
+    left: 25%;
+    bottom: -40px;
+    animation-delay: 3s;
+}
+
+.heart3 {
+    right: 20%;
+    bottom: -30px;
+    animation-delay: 5s;
+}
+
+.heart4 {
+    right: 7%;
+    bottom: -50px;
+    animation-delay: 2s;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-100vh) scale(1.4) rotate(20deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.timeline-title {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 15px;
+}
+
+.timeline-title h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(48px, 7vw, 80px);
+    color: #ff72b0;
+    margin: 0;
+    text-shadow:
+        0 0 10px rgba(255, 114, 176, 0.4),
+        0 0 30px rgba(255, 114, 176, 0.2);
+}
+
+.timeline-subtitle {
+    text-align: center;
+    color: #d7dce5;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 70px;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+    position: relative;
+    width: min(1100px, 100%);
+    margin: auto;
+    padding: 20px 0 50px;
+}
+
+
+/* CENTER LINE */
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #ff4f98,
+        #ff80b8,
+        #ff4f98,
+        transparent
+    );
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px rgba(255, 79, 152, 0.5);
+}
+
+
+/* =========================
+   TIMELINE ITEM
+========================= */
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 15px 45px;
+    margin-bottom: 45px;
+}
+
+
+/* LEFT */
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+
+/* RIGHT */
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+
+/* =========================
+   DOT
+========================= */
+
+.timeline-dot {
+    position: absolute;
+    top: 30px;
+    width: 22px;
+    height: 22px;
+    background: #ff579f;
+    border: 5px solid #07111f;
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 3px #ff579f,
+        0 0 20px rgba(255, 87, 159, 0.8);
+    z-index: 3;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -11px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -11px;
+}
+
+
+/* =========================
+   MEMORY CARD
+========================= */
+
+.memory-card {
+    position: relative;
+    padding: 30px 32px;
+    border-radius: 24px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(31, 43, 59, 0.95),
+        rgba(18, 28, 42, 0.95)
+    );
+
+    border: 1px solid rgba(255, 91, 157, 0.25);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 25px rgba(255, 91, 157, 0.025);
+
+    transition: all 0.4s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-8px) scale(1.02);
+
+    border-color: rgba(255, 91, 157, 0.7);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(255, 91, 157, 0.15);
+}
+
+
+/* CARD TITLE */
+
+.memory-card h3 {
+    color: #ff71ae;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.memory-card p {
+    color: #e4e7ec;
+    font-size: 15px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+
+/* =========================
+   SMALL DATE LABEL
+========================= */
+
+.memory-label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff91c1;
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-message {
+    width: min(700px, 100%);
+    margin: 30px auto 60px;
+    text-align: center;
+    padding: 40px 30px;
+    border-radius: 28px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 72, 145, 0.12),
+        rgba(255, 255, 255, 0.03)
+    );
+
+    border: 1px solid rgba(255, 104, 170, 0.25);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(255, 75, 150, 0.08);
+}
+
+.final-message h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #ff78b2;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.final-message p {
+    color: #e0e4ea;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.page-navigation button {
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #ff4f98,
+        #ff76b4
+    );
+
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(255, 79, 152, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.page-navigation button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 30px rgba(255, 79, 152, 0.4);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    #timeline-page {
+        padding: 50px 15px;
+    }
+
+    .timeline-subtitle {
+        margin-bottom: 45px;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        text-align: left;
+        padding: 10px 10px 10px 55px;
+        margin-bottom: 30px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 9px;
+        right: auto;
+    }
+
+    .memory-card {
+        padding: 24px 20px;
+    }
+
+    .memory-card h3 {
+        font-size: 22px;
+    }
+
+    .final-message h2 {
+        font-size: 40px;
+    }
+
+    .page-navigation button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- Floating Hearts -->
+
+<div class="floating-heart heart1">❤️</div>
+<div class="floating-heart heart2">💗</div>
+<div class="floating-heart heart3">💕</div>
+<div class="floating-heart heart4">💖</div>
+
+
+<section id="timeline-page">
+
+<div class="container">
+
+
+<!-- TITLE -->
+
+<div class="timeline-title" data-aos="fade-down">
+
+<h1>🕰️ Our Journey Together</h1>
+
+</div>
+
+<p class="timeline-subtitle" data-aos="fade-up">
+
+Some memories become stories,
+and some stories become forever. ❤️
+
+</p>
+
+
+<!-- =========================
+     TIMELINE
+========================= -->
+
+<div class="timeline">
+
+
+<!-- MEMORY 1 -->
+
+<div class="timeline-item" data-aos="fade-right">
+
+<div class="timeline-dot"></div>
+
+<div class="memory-card">
+
+<span class="memory-label">
+Chapter 01
+</span>
+
+<h3>🌸 The Beginning</h3>
+
+<p>
+The day we became friends was the beginning
+of countless beautiful memories.
+What started as an ordinary day slowly became
+one of the most special parts of my life.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- MEMORY 2 -->
+
+<div class="timeline-item" data-aos="fade-left">
+
+<div class="timeline-dot"></div>
+
+<div class="memory-card">
+
+<span class="memory-label">
+Chapter 02
+</span>
+
+<h3>😂 Best Moments</h3>
+
+<p>
+Irritating each other during class while
+the teacher was watching us...
+those silly little moments somehow became
+some of the memories I remember the most.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- MEMORY 3 -->
+
+<div class="timeline-item" data-aos="fade-right">
+
+<div class="timeline-dot"></div>
+
+<div class="memory-card">
+
+<span class="memory-label">
+Chapter 03
+</span>
+
+<h3>🎤 Endless Talks</h3>
+
+<p>
+Your nonstop talking made even the most boring
+days special. Somehow there was always another
+story, another joke, or another random thing
+to talk about.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- MEMORY 4 -->
+
+<div class="timeline-item" data-aos="fade-left">
+
+<div class="timeline-dot"></div>
+
+<div class="memory-card">
+
+<span class="memory-label">
+Chapter 04
+</span>
+
+<h3>❤️ Today</h3>
+
+<p>
+Distance may separate us for a while,
+but the memories we created will always remain.
+Some friendships don't need to be together
+every day to stay special.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- FINAL MESSAGE -->
+
+<div class="final-message" data-aos="zoom-in">
+
+<h2>And This Is Only The Beginning... ✨</h2>
+
+<p>
+There are still so many memories waiting to be created,
+so many laughs waiting to happen,
+and so many moments waiting to become stories. ❤️
+</p>
+
+</div>
+
+
+<!-- NAVIGATION -->
+
+<div class="page-navigation" data-aos="fade-up">
+
+<button onclick="location.href='letter.html'">
+⬅ Previous
+</button>
+
+<button onclick="location.href='gallery.html'">
+📸 View Our Memories ➜
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+    duration: 900,
+    once: true,
+    offset: 80
+});
+
+</script>
+
+
+</body>
+
+</html>

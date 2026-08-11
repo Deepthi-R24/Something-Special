@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Playlist ❤️</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    color: white;
+
+    background: #020817;
+
+}
+
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+#music-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 70px 20px 90px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 77, 150, 0.16),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(124, 77, 255, 0.15),
+            transparent 30%
+        ),
+
+        #020817;
+
+}
+
+
+/* =====================================================
+   BACKGROUND GLOW
+===================================================== */
+
+#music-page::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    left: -200px;
+    top: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 77, 150, 0.16),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    animation: glowMove 10s ease-in-out infinite alternate;
+
+}
+
+
+#music-page::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 450px;
+    height: 450px;
+
+    right: -200px;
+    bottom: -200px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 77, 255, 0.14),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    animation: glowMove2 12s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes glowMove {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(90px, 70px);
+    }
+
+}
+
+
+@keyframes glowMove2 {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-80px, -70px);
+    }
+
+}
+
+
+/* =====================================================
+   FLOATING MUSIC NOTES
+===================================================== */
+
+.music-note {
+
+    position: fixed;
+
+    bottom: -40px;
+
+    color: rgba(255, 105, 180, 0.35);
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: floatingNote linear infinite;
+
+}
+
+
+.note1 {
+    left: 8%;
+    animation-duration: 11s;
+}
+
+.note2 {
+    left: 25%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.note3 {
+    left: 47%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
+
+.note4 {
+    left: 70%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.note5 {
+    left: 90%;
+    animation-duration: 12s;
+    animation-delay: 3s;
+}
+
+
+@keyframes floatingNote {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.7);
+
+        opacity: 0;
+
+    }
+
+    15% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.35;
+    }
+
+    100% {
+
+        transform:
+            translateY(-110vh)
+            rotate(30deg)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.music-container {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(850px, 100%);
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.music-header {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+
+}
+
+
+.music-header h1 {
+
+    margin: 0;
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(55px, 8vw, 85px);
+
+    font-weight: 400;
+
+    color: #ff72b5;
+
+    line-height: 1.1;
+
+    text-shadow:
+        0 0 25px rgba(255, 105, 180, 0.25);
+
+}
+
+
+.header-line {
+
+    width: 120px;
+
+    height: 2px;
+
+    margin: 20px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff65aa,
+            transparent
+        );
+
+}
+
+
+.music-subtitle {
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =====================================================
+   MUSIC CARD
+===================================================== */
+
+.music-card {
+
+    position: relative;
+
+    padding: 35px;
+
+    border-radius: 32px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(30, 42, 58, 0.96),
+            rgba(12, 22, 37, 0.97)
+        );
+
+    border:
+        1px solid
+        rgba(255, 105, 180, 0.22);
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(0, 0, 0, 0.38),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.04);
+
+    overflow: hidden;
+
+}
+
+
+/* =====================================================
+   ALBUM ART
+===================================================== */
+
+.album-art {
+
+    position: relative;
+
+    width: 230px;
+
+    height: 230px;
+
+    margin: 0 auto 30px;
+
+    border-radius: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 85px;
+
+    background:
+
+        radial-gradient(
+            circle at 35% 30%,
+            #ff9ac9,
+            #ff4f98 35%,
+            #7c4dff 75%,
+            #261c55
+        );
+
+    box-shadow:
+
+        0 20px 45px
+        rgba(255, 79, 152, 0.25),
+
+        inset 0 0 40px
+        rgba(255, 255, 255, 0.12);
+
+    animation: albumFloat 4s ease-in-out infinite;
+
+}
+
+
+.album-art::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 15px;
+
+    border-radius: 22px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.20);
+
+}
+
+
+.album-art::after {
+
+    content: "♪";
+
+    position: absolute;
+
+    right: 25px;
+
+    bottom: 10px;
+
+    color: rgba(255, 255, 255, 0.35);
+
+    font-size: 35px;
+
+}
+
+
+@keyframes albumFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+/* =====================================================
+   SONG INFO
+===================================================== */
+
+.song-section {
+
+    text-align: center;
+
+}
+
+
+.song-section h2 {
+
+    margin-bottom: 8px;
+
+    font-size: 30px;
+
+    font-weight: 600;
+
+    color: #ffffff;
+
+}
+
+
+.song-description {
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 14px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================================
+   MUSIC WAVE
+===================================================== */
+
+.music-wave {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+    height: 35px;
+
+    margin: 20px 0;
+
+}
+
+
+.music-wave span {
+
+    width: 4px;
+
+    height: 12px;
+
+    border-radius: 10px;
+
+    background: #ff69ad;
+
+    animation: wave 1s ease-in-out infinite;
+
+}
+
+
+.music-wave span:nth-child(2) {
+    animation-delay: .1s;
+}
+
+.music-wave span:nth-child(3) {
+    animation-delay: .2s;
+}
+
+.music-wave span:nth-child(4) {
+    animation-delay: .3s;
+}
+
+.music-wave span:nth-child(5) {
+    animation-delay: .4s;
+}
+
+.music-wave span:nth-child(6) {
+    animation-delay: .5s;
+}
+
+.music-wave span:nth-child(7) {
+    animation-delay: .6s;
+}
+
+
+@keyframes wave {
+
+    0%,
+    100% {
+        height: 10px;
+    }
+
+    50% {
+        height: 30px;
+    }
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.music-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+}
+
+
+.music-play-button {
+
+    border: none;
+
+    padding: 13px 22px;
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff4f98,
+            #7c4dff
+        );
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(255, 79, 152, 0.22);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.music-play-button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+
+        0 15px 35px
+        rgba(255, 79, 152, 0.38);
+
+}
+
+
+.music-play-button:active {
+
+    transform: scale(0.96);
+
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.music-status {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 9px 18px;
+
+    border-radius: 30px;
+
+    color: #ffb2d5;
+
+    background:
+        rgba(255, 105, 180, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 105, 180, 0.15);
+
+    font-size: 13px;
+
+    transition: 0.3s ease;
+
+}
+
+
+/* =====================================================
+   SMALL MESSAGE
+===================================================== */
+
+.music-message {
+
+    text-align: center;
+
+    margin-top: 28px;
+
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: 12px;
+
+    font-style: italic;
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.page-navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin: 55px auto 15px;
+
+}
+
+
+.page-navigation button {
+
+    border: none;
+
+    outline: none;
+
+    padding: 14px 28px;
+
+    min-width: 190px;
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff4f9a,
+            #ff72b6
+        );
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+
+        0 10px 28px
+        rgba(255, 79, 154, 0.28);
+
+    transition: 0.3s ease;
+
+}
+
+
+.page-navigation button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+
+        0 15px 38px
+        rgba(255, 79, 154, 0.42);
+
+}
+
+
+.page-navigation button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #music-page {
+
+        padding:
+            50px 15px 70px;
+
+    }
+
+
+    .music-card {
+
+        padding: 25px 18px;
+
+        border-radius: 25px;
+
+    }
+
+
+    .album-art {
+
+        width: 190px;
+
+        height: 190px;
+
+        font-size: 70px;
+
+    }
+
+
+    .song-section h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .music-controls {
+
+        flex-direction: column;
+
+    }
+
+
+    .music-play-button {
+
+        width: 90%;
+
+        max-width: 280px;
+
+    }
+
+
+    .page-navigation {
+
+        flex-direction: column;
+
+    }
+
+
+    .page-navigation button {
+
+        width: 90%;
+
+        max-width: 300px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     FLOATING NOTES
+===================================================== -->
+
+<div class="music-note note1">♪</div>
+<div class="music-note note2">♫</div>
+<div class="music-note note3">♪</div>
+<div class="music-note note4">♬</div>
+<div class="music-note note5">♫</div>
+
+
+<section id="music-page">
+
+<div class="music-container">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div class="music-header">
+
+    <h1>
+        🎵 Our Playlist
+    </h1>
+
+    <div class="header-line"></div>
+
+    <p class="music-subtitle">
+
+        Every friendship has its own soundtrack ❤️
+
+        <br>
+
+        And this one will always remind me of you. ✨
+
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     MUSIC CARD
+===================================================== -->
+
+<div class="music-card">
+
+
+<div class="album-art">
+
+    🎵
+
+</div>
+
+
+<div class="song-section">
+
+
+<h2>
+    O Sampigeye
+</h2>
+
+
+<p class="song-description">
+
+    🎶 A special song for a very special friendship ❤️
+
+</p>
+
+
+<!-- MUSIC WAVE -->
+
+<div class="music-wave">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+
+<!-- CONTROLS -->
+
+<div class="music-controls">
+
+
+<button
+    class="music-play-button"
+    onclick="playSong()">
+
+    ▶️ Play Song
+
+</button>
+
+
+<button
+    class="music-play-button"
+    onclick="pauseSong()">
+
+    ⏸️ Pause
+
+</button>
+
+
+<button
+    class="music-play-button"
+    onclick="replaySong()">
+
+    🔁 Replay
+
+</button>
+
+
+</div>
+
+
+<p
+    id="musicStatus"
+    class="music-status">
+
+    🎵 Ready to play
+
+</p>
+
+
+<p class="music-message">
+
+    "Some songs don't just play... they bring back memories." ❤️
+
+</p>
+
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<div class="page-navigation">
+
+
+<button onclick="goToPage('videos.html')">
+
+    ⬅ Previous
+
+</button>
+
+
+<button onclick="goToPage('miss.html')">
+
+    ❤️ Things I Miss ➜
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<script>
+
+
+/* =====================================================
+   PLAY
+===================================================== */
+
+function playSong() {
+
+    window.parent.postMessage({
+
+        type: "playSecondSong"
+
+    }, "*");
+
+
+    document.getElementById(
+        "musicStatus"
+    ).innerHTML =
+        "🎶 O Sampigeye is playing ❤️";
+
+}
+
+
+/* =====================================================
+   PAUSE
+===================================================== */
+
+function pauseSong() {
+
+    window.parent.postMessage({
+
+        type: "pauseSecondSong"
+
+    }, "*");
+
+
+    document.getElementById(
+        "musicStatus"
+    ).innerHTML =
+        "⏸️ O Sampigeye paused";
+
+}
+
+
+/* =====================================================
+   REPLAY
+===================================================== */
+
+function replaySong() {
+
+    window.parent.postMessage({
+
+        type: "playSecondSong"
+
+    }, "*");
+
+
+    document.getElementById(
+        "musicStatus"
+    ).innerHTML =
+        "🔁 O Sampigeye replaying ❤️";
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function goToPage(page) {
+
+    if (
+
+        window.parent &&
+
+        window.parent !== window &&
+
+        typeof window.parent.loadPage === "function"
+
+    ) {
+
+        window.parent.loadPage(page);
+
+    }
+
+    else {
+
+        window.location.href = page;
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

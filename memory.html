@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Memory Jar ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,105,180,0.16), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(124,77,255,0.18), transparent 35%),
+        linear-gradient(135deg, #050816, #10162d, #080b1d);
+}
+
+/* BACKGROUND */
+
+.background-glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.25;
+}
+
+.glow.one {
+    background: #ff4f9a;
+    top: -120px;
+    left: -100px;
+}
+
+.glow.two {
+    background: #7c4dff;
+    right: -120px;
+    bottom: -100px;
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 18px;
+    opacity: 0;
+    animation: floatHeart linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(25deg) scale(1.2);
+        opacity: 0;
+    }
+
+}
+
+/* PAGE */
+
+#memory-page {
+    min-height: 100vh;
+    padding: 60px 20px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+/* TITLE */
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(55px, 8vw, 90px);
+    margin: 0;
+    color: #ff8bc2;
+    text-shadow:
+        0 0 15px rgba(255,105,180,0.4),
+        0 0 40px rgba(255,105,180,0.2);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+
+    from {
+        text-shadow: 0 0 15px rgba(255,105,180,0.3);
+    }
+
+    to {
+        text-shadow:
+            0 0 25px rgba(255,105,180,0.8),
+            0 0 50px rgba(255,105,180,0.3);
+    }
+
+}
+
+.memory-subtitle {
+    color: #d9ddea;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+/* JAR AREA */
+
+.jar-area {
+    position: relative;
+    width: 300px;
+    height: 370px;
+    margin: 30px auto 5px;
+}
+
+/* GLOW BEHIND JAR */
+
+.jar-glow {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: 25px;
+    top: 65px;
+    border-radius: 50%;
+    background: rgba(255,105,180,0.18);
+    filter: blur(35px);
+    animation: jarGlow 2.5s infinite alternate;
+}
+
+@keyframes jarGlow {
+
+    from {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+}
+
+/* JAR */
+
+.jar {
+    position: absolute;
+    left: 45px;
+    top: 80px;
+    width: 210px;
+    height: 245px;
+    border-radius: 35px 35px 55px 55px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.18),
+            rgba(255,105,180,0.08)
+        );
+
+    border: 3px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        inset 10px 0 20px rgba(255,255,255,0.08),
+        inset -10px 0 20px rgba(0,0,0,0.15),
+        0 20px 60px rgba(0,0,0,0.4);
+
+    backdrop-filter: blur(8px);
+
+    cursor: pointer;
+
+    transition: 0.5s ease;
+}
+
+.jar:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+/* JAR CAP */
+
+.jar-cap {
+    position: absolute;
+    top: -27px;
+    left: 28px;
+    width: 154px;
+    height: 40px;
+    border-radius: 12px 12px 8px 8px;
+
+    background: linear-gradient(
+        135deg,
+        #ff7eb8,
+        #c94b91
+    );
+
+    border: 2px solid rgba(255,255,255,0.35);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.3);
+}
+
+.jar-cap::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 9px;
+    height: 5px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.25);
+}
+
+/* JAR LABEL */
+
+.jar-label {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 80px;
+
+    padding: 15px 8px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(5px);
+
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+}
+
+/* SMALL HEARTS IN JAR */
+
+.jar-heart {
+    position: absolute;
+    font-size: 25px;
+    animation: jarFloat 2.5s ease-in-out infinite;
+}
+
+.jar-heart:nth-child(1) {
+    left: 35px;
+    bottom: 45px;
+}
+
+.jar-heart:nth-child(2) {
+    right: 35px;
+    bottom: 55px;
+    animation-delay: .5s;
+}
+
+.jar-heart:nth-child(3) {
+    left: 90px;
+    bottom: 25px;
+    animation-delay: 1s;
+}
+
+@keyframes jarFloat {
+
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+
+}
+
+/* INSTRUCTION */
+
+.click-text {
+    margin-top: -5px;
+    color: #ffb5d5;
+    font-size: 14px;
+    animation: pulseText 1.8s infinite;
+}
+
+@keyframes pulseText {
+
+    50% {
+        opacity: 0.45;
+    }
+
+}
+
+/* MEMORY CARD */
+
+.memory-card {
+    width: min(650px, 92%);
+    margin: 20px auto;
+
+    padding: 35px 30px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.13),
+            rgba(255,255,255,0.05)
+        );
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(15px);
+
+    opacity: 0;
+    transform: translateY(25px) scale(0.95);
+
+    pointer-events: none;
+
+    transition: 0.6s ease;
+}
+
+.memory-card.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.memory-icon {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+#memoryText {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #f4f4f7;
+    margin: 0;
+}
+
+.memory-number {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #ff9bc8;
+    letter-spacing: 2px;
+}
+
+/* BUTTON */
+
+#memoryBtn {
+    margin-top: 18px;
+
+    border: none;
+
+    padding: 14px 30px;
+
+    border-radius: 40px;
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 600;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f98,
+            #9b5cff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(255,79,152,0.3);
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+#memoryBtn:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 15px 40px rgba(255,79,152,0.5);
+}
+
+/* JAR OPEN ANIMATION */
+
+.jar.open {
+    animation: jarOpen .8s ease forwards;
+}
+
+@keyframes jarOpen {
+
+    30% {
+        transform: translateY(-20px) rotate(-3deg);
+    }
+
+    60% {
+        transform: translateY(0) rotate(3deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+}
+
+/* NAVIGATION */
+
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 45px;
+}
+
+.page-navigation button {
+    border: none;
+    padding: 13px 25px;
+    min-width: 180px;
+
+    border-radius: 35px;
+
+    background: rgba(255,255,255,0.1);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.3s ease;
+}
+
+.page-navigation button:hover {
+    background: linear-gradient(135deg,#ff4f98,#9b5cff);
+    transform: translateY(-4px);
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    font-size: 20px;
+    pointer-events: none;
+    z-index: 999;
+    animation: confettiFall 2s linear forwards;
+}
+
+@keyframes confettiFall {
+
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    #memory-page {
+        padding-top: 40px;
+    }
+
+    .jar-area {
+        transform: scale(.88);
+        margin-top: 15px;
+        margin-bottom: -15px;
+    }
+
+    .memory-card {
+        padding: 28px 20px;
+    }
+
+    #memoryText {
+        font-size: 16px;
+    }
+
+    .page-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-navigation button {
+        width: 90%;
+        max-width: 300px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="background-glow">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+</div>
+
+
+<section id="memory-page">
+
+<div class="container">
+
+<h1>🎁 Memory Jar</h1>
+
+<p class="memory-subtitle">
+A tiny jar filled with pieces of our friendship ❤️
+</p>
+
+
+<div class="jar-area">
+
+<div class="jar-glow"></div>
+
+<div class="jar" id="jar">
+
+<div class="jar-cap"></div>
+
+<div class="jar-label">
+Our Memories ❤️
+</div>
+
+<div class="jar-heart">💖</div>
+<div class="jar-heart">💗</div>
+<div class="jar-heart">💕</div>
+
+</div>
+
+</div>
+
+
+<p class="click-text">
+✨ Tap the jar to open a memory ✨
+</p>
+
+
+<div class="memory-card" id="memoryCard">
+
+<div class="memory-icon" id="memoryIcon">
+💌
+</div>
+
+<p id="memoryText"></p>
+
+<div class="memory-number" id="memoryNumber">
+MEMORY 01
+</div>
+
+</div>
+
+
+<button id="memoryBtn">
+✨ Reveal a Memory
+</button>
+
+
+<div class="page-navigation">
+
+<button onclick="location.href='secret.html'">
+⬅ Previous
+</button>
+
+<button onclick="location.href='finale.html'">
+🌸 Final Surprise ➜
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+const memories = [
+
+{
+    icon: "🌸",
+    text: "The first time we met... I didn't know that one small moment would become the beginning of so many beautiful memories."
+},
+
+{
+    icon: "😂",
+    text: "Those moments when we irritated each other in class and tried not to laugh while the teacher was watching."
+},
+
+{
+    icon: "🎤",
+    text: "Your endless talking somehow made even the most boring college days fun."
+},
+
+{
+    icon: "🏫",
+    text: "College gave me many things, but one of my favourite things was getting to spend those days with you."
+},
+
+{
+    icon: "💖",
+    text: "Some of my favourite memories aren't big events. They're just the random little moments we shared."
+},
+
+{
+    icon: "✈️",
+    text: "Every trip became more memorable because of the silly conversations, laughs and little adventures along the way."
+},
+
+{
+    icon: "🤳",
+    text: "The random selfies, random pictures and random moments that somehow became precious memories."
+},
+
+{
+    icon: "🌙",
+    text: "Even when we're not together, I know I'll look back at these memories and smile."
+},
+
+{
+    icon: "❤️",
+    text: "Two years of friendship... and somehow I still feel like we have a thousand more memories waiting for us."
+}
+
+];
+
+
+let currentMemory = -1;
+
+const jar = document.getElementById("jar");
+const button = document.getElementById("memoryBtn");
+const card = document.getElementById("memoryCard");
+const text = document.getElementById("memoryText");
+const icon = document.getElementById("memoryIcon");
+const number = document.getElementById("memoryNumber");
+
+
+function revealMemory() {
+
+    currentMemory++;
+
+    if (currentMemory >= memories.length) {
+        currentMemory = 0;
+    }
+
+    const memory = memories[currentMemory];
+
+    jar.classList.remove("open");
+
+    void jar.offsetWidth;
+
+    jar.classList.add("open");
+
+
+    setTimeout(function() {
+
+        icon.textContent = memory.icon;
+
+        text.textContent = memory.text;
+
+        number.textContent =
+            "MEMORY " +
+            String(currentMemory + 1).padStart(2, "0") +
+            " OF " +
+            String(memories.length).padStart(2, "0");
+
+        card.classList.remove("show");
+
+        void card.offsetWidth;
+
+        card.classList.add("show");
+
+        createConfetti();
+
+        createHearts();
+
+    }, 350);
+
+}
+
+
+jar.addEventListener("click", revealMemory);
+
+button.addEventListener("click", revealMemory);
+
+
+/* CONFETTI */
+
+function createConfetti() {
+
+    const pieces = ["💖","💕","✨","🌸","💗","⭐"];
+
+    for (let i = 0; i < 18; i++) {
+
+        const item = document.createElement("div");
+
+        item.className = "confetti";
+
+        item.textContent =
+            pieces[Math.floor(Math.random() * pieces.length)];
+
+        item.style.left =
+            Math.random() * 100 + "vw";
+
+        item.style.animationDelay =
+            Math.random() * .5 + "s";
+
+        document.body.appendChild(item);
+
+        setTimeout(function() {
+            item.remove();
+        }, 2500);
+
+    }
+
+}
+
+
+/* FLOATING HEARTS */
+
+function createHearts() {
+
+    for (let i = 0; i < 5; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.textContent =
+            ["❤️","💗","💕","💖"][
+                Math.floor(Math.random() * 4)
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (4 + Math.random() * 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 7000);
+
+    }
+
+}
+
+
+/* AUTOMATIC BACKGROUND HEARTS */
+
+setInterval(function() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.textContent = "♡";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (6 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+        heart.remove();
+    }, 10000);
+
+}, 1800);
+
+</script>
+
+</body>
+
+</html>
